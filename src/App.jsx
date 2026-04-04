@@ -54,7 +54,7 @@ export default function App() {
         </p>
         <div style={{ display: 'flex', gap: 12 }}>
           <a href="#projects" style={btnStyle}>view my work →</a>
-          <a href="mailto:your@email.com" style={{ ...btnStyle, background: 'transparent', color: 'var(--text)', border: '1px solid var(--border)' }}>get in touch</a>
+          <a href="mailto:florida.kawmi@ufl.edu" style={{ ...btnStyle, background: 'transparent', color: 'var(--text)', border: '1px solid var(--border)' }}>get in touch</a>
         </div>
       </section>
 
@@ -112,7 +112,7 @@ export default function App() {
         <p style={{ color: 'var(--muted)', marginBottom: 32, maxWidth: 400, margin: '0 auto 32px' }}>
           Open to internships, collabs, or just a good conversation. Drop me a line.
         </p>
-        <a href="mailto:your@email.com" style={btnStyle}>say hello →</a>
+        <a href="mailto:florida.kawmi@ufl.edu" style={btnStyle}>say hello →</a>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 40, fontSize: 13, color: 'var(--muted)' }}>
           <a href="https://github.com/florida-k" style={linkStyle} target="_blank">github</a>
           <a href="https://www.linkedin.com/in/florida-k/" style={linkStyle} target="_blank">linkedin</a>
