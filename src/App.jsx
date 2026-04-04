@@ -3,25 +3,43 @@ import './App.css'
 
 const projects = [
   {
-    title: 'Cafe Finder',
-    desc: 'A cozy app to discover cute cafes nearby using geolocation and the Google Places API.',
-    tech: ['JavaScript', 'CSS', 'Node.js'],
-    link: 'https://cafe-finder-template-lime.vercel.app',
-    github: 'https://github.com/florida-k/cafe-finder-template',
+    title: 'Dopaminder',
+    subtitle: 'WICSE Spring Design Team · 2026',
+    desc:
+      'A full-stack companion for ADHD-friendly planning — moods, tasks, rewards, notes, and AI-suggested subtasks. Built with a React client and FastAPI + PostgreSQL on the backend.',
+    tech: ['React', 'FastAPI', 'PostgreSQL', 'Python'],
+    github: 'https://github.com/sierraE1/designTeam',
+    live: null,
+    image:
+      'https://raw.githubusercontent.com/sierraE1/designTeam/main/frontend/src/assets/Logo.png',
+    imageAlt: 'Dopaminder product logo',
+    comingSoon: false,
+    imageFit: 'contain',
   },
   {
-    title: 'Project Two',
-    desc: 'Short description of what this project does and why it\'s interesting.',
-    tech: ['React', 'Vite'],
-    link: '#',
-    github: '#',
+    title: 'SASE Hacks 2026',
+    subtitle: 'Computer vision × the web',
+    desc:
+      'Hackathon project: hand tracking and “air drawing” piped into a Flask app with a styled gallery — save sketches, browse the wall, and iterate in the browser.',
+    tech: ['Python', 'Flask', 'OpenCV', 'HTML/CSS'],
+    github: 'https://github.com/florida-k/sasehacks2026',
+    live: null,
+    image:
+      'https://raw.githubusercontent.com/florida-k/sasehacks2026/main/static/Title-SASEhacks.png',
+    imageAlt: 'SASE Hacks 2026 title artwork',
+    comingSoon: false,
   },
   {
-    title: 'Project Three',
-    desc: 'Short description of what this project does and why it\'s interesting.',
-    tech: ['Python', 'API'],
-    link: '#',
-    github: '#',
+    title: 'Minesweeper',
+    subtitle: 'In the works',
+    desc:
+      'A careful rebuild of the classic grid game for the web — readable tiles, satisfying reveals, and keyboard-friendly play. Repository and demo landing very soon.',
+    tech: ['React', 'TypeScript', 'CSS'],
+    github: null,
+    live: null,
+    image: '/project-images/minesweeper-soon.svg',
+    imageAlt: 'Minesweeper preview placeholder',
+    comingSoon: true,
   },
 ]
 
@@ -58,6 +76,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <div className="app__ambient" aria-hidden />
       <header>
         <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`} aria-label="Primary">
           <a className="nav__brand" href="#top">
@@ -119,6 +138,8 @@ export default function App() {
           </Reveal>
         </section>
 
+        <div className="section-wave" aria-hidden />
+
         <section id="about" className="section" aria-labelledby="about-heading">
           <Reveal>
             <p className="section__label">✦ about me</p>
@@ -132,9 +153,12 @@ export default function App() {
                 <div className="about__text">
                   <p>
                     I&apos;m Florida, a developer based in Gainesville. I enjoy creating things that
-                    live on the internet — from small tools to full-stack apps.
+                    live on the internet — from hackathon builds to design-team products.
                   </p>
-                  <p>When I&apos;m not coding I&apos;m probably at a cafe, which is why I built a cafe finder. ☕</p>
+                  <p>
+                    Lately that&apos;s meant WICSE design work (like Dopaminder), SASE Hacks builds,
+                    and polishing games and tools I wish existed.
+                  </p>
                 </div>
               </div>
             </Reveal>
@@ -151,51 +175,24 @@ export default function App() {
           </div>
         </section>
 
-        <section id="projects" className="section" aria-labelledby="projects-heading">
+        <section id="projects" className="section section--projects" aria-labelledby="projects-heading">
           <Reveal>
             <p className="section__label">✦ projects</p>
             <h2 id="projects-heading" className="projects__title">
               things i&apos;ve built
             </h2>
+            <p className="projects__intro">
+              Featured work from my{' '}
+              <a href="https://github.com/florida-k" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+              — hover the previews for a little depth.
+            </p>
           </Reveal>
-          <div className="project-list">
+          <div className="project-showcase-list">
             {projects.map((p, i) => (
-              <Reveal key={p.title} delay={0.05 * i}>
-                <article className="project-card">
-                  <div className="project-card__top">
-                    <h3 className="project-card__name">{p.title}</h3>
-                    <div className="project-card__links">
-                      {p.github !== '#' && (
-                        <a
-                          href={p.github}
-                          className="project-card__link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          github ↗
-                        </a>
-                      )}
-                      {p.link !== '#' && (
-                        <a
-                          href={p.link}
-                          className="project-card__link project-card__link--accent"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          live ↗
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  <p className="project-card__desc">{p.desc}</p>
-                  <div>
-                    {p.tech.map((t) => (
-                      <span key={t} className="skill-tag">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </article>
+              <Reveal key={p.title} delay={0.06 * i}>
+                <ProjectShowcase project={p} index={i} />
               </Reveal>
             ))}
           </div>
@@ -229,6 +226,112 @@ export default function App() {
         <p>© {new Date().getFullYear()} Florida Kawmi · crafted with care</p>
       </footer>
     </div>
+  )
+}
+
+function ProjectShowcase({ project, index }) {
+  const reverse = index % 2 === 1
+  const figure = <ProjectFigure project={project} />
+
+  return (
+    <article className={`project-showcase ${reverse ? 'project-showcase--reverse' : ''}`}>
+      <div className="project-showcase__media">
+        {project.github ? (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-showcase__visual-hit"
+            aria-label={`${project.title}: view repository on GitHub`}
+          >
+            {figure}
+          </a>
+        ) : (
+          <div className="project-showcase__visual-hit project-showcase__visual-hit--static">{figure}</div>
+        )}
+      </div>
+      <div className="project-showcase__body">
+        <p className="project-showcase__eyebrow">{project.subtitle}</p>
+        <h3 className="project-showcase__title">{project.title}</h3>
+        <p className="project-showcase__desc">{project.desc}</p>
+        <div className="project-showcase__tags">
+          {project.tech.map((t) => (
+            <span key={t} className="skill-tag skill-tag--project">
+              {t}
+            </span>
+          ))}
+        </div>
+        <div className="project-showcase__actions">
+          {project.github && (
+            <a
+              href={project.github}
+              className="project-showcase__btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              code on github <span aria-hidden>↗</span>
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              className="project-showcase__btn project-showcase__btn--primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              live site <span aria-hidden>↗</span>
+            </a>
+          )}
+          {project.comingSoon && !project.github && (
+            <span className="project-showcase__soon">repo & demo dropping soon</span>
+          )}
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function ProjectFigure({ project }) {
+  const ref = useRef(null)
+  const [imgOk, setImgOk] = useState(true)
+
+  const onMove = (e) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const el = ref.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const px = (e.clientX - r.left) / r.width - 0.5
+    const py = (e.clientY - r.top) / r.height - 0.5
+    el.style.setProperty('--rx', `${py * -9}deg`)
+    el.style.setProperty('--ry', `${px * 11}deg`)
+  }
+
+  const onLeave = () => {
+    ref.current?.style.setProperty('--rx', '0deg')
+    ref.current?.style.setProperty('--ry', '0deg')
+  }
+
+  return (
+    <figure ref={ref} className="project-showcase__figure" onMouseMove={onMove} onMouseLeave={onLeave}>
+      <div className="project-showcase__blob">
+        <div className="project-showcase__shine" aria-hidden />
+        {imgOk ? (
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            className={`project-showcase__img${project.imageFit === 'contain' ? ' project-showcase__img--contain' : ''}`}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImgOk(false)}
+          />
+        ) : (
+          <div className="project-showcase__fallback" aria-hidden>
+            {project.title.charAt(0)}
+          </div>
+        )}
+        {project.comingSoon && <span className="project-showcase__badge">soon</span>}
+      </div>
+    </figure>
   )
 }
 
