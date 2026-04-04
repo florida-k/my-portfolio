@@ -119,12 +119,13 @@ export default function App() {
               <em>i build things for the web.</em>
             </h1>
             <p className="hero__lead">
-              I&apos;m a developer who loves building clean, thoughtful digital experiences.
-              Currently studying at UF, always working on something new.
+              I&apos;m a Computer Science student at the University of Florida, 
+              building full-stack applications and turning ideas into clean, functional products.
+              Always working on something new.
             </p>
             <div className="hero__meta">
               <span className="hero__chip">Gainesville, FL</span>
-              <span className="hero__chip">Full-stack curious</span>
+              <span className="hero__chip">Full-stack Developer</span>
               <span className="hero__chip">Open to opportunities</span>
             </div>
             <div className="hero__actions">
@@ -165,7 +166,7 @@ export default function App() {
             <Reveal delay={0.12}>
               <div className="skills-card">
                 <p className="skills-card__label">skills</p>
-                {['JavaScript', 'React', 'Node.js', 'Python', 'CSS', 'Git'].map((skill) => (
+                {['JavaScript', 'React', 'Node.js', 'Python', 'HTML', 'CSS', 'Git', 'FastAPI'].map((skill) => (
                   <span key={skill} className="skill-tag">
                     {skill}
                   </span>
