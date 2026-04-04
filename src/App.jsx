@@ -156,11 +156,9 @@ export default function App() {
                     I&apos;m Florida, a developer and student based in Gainesville. I enjoy building things that live on the internet—especially projects that combine functionality, design, and real user interaction.
                     Recently, I’ve been working on full-stack applications through WiCSE, including Dopaminder, where I develop backend systems and integrate them with user-facing features. 
                     I’ve also built interactive web apps at hackathons like SASE Hacks, focusing on real-time input and dynamic interfaces.
-                    I’m especially interested in creating clean, intuitive experiences and continuously improving both my technical skills and design thinking.
                   </p>
                   <p>
-                    Lately that&apos;s meant WICSE design work (like Dopaminder), SASE Hacks builds,
-                    and polishing games and tools I wish existed.
+                    especially interested in creating clean, intuitive experiences and continuously improving both my technical skills and design thinking.
                   </p>
                 </div>
               </div>
