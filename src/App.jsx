@@ -153,10 +153,10 @@ export default function App() {
                 </h2>
                 <div className="about__text">
                   <p>
-                    I&apos;m Florida, a developer and student based in Gainesville. I enjoy building things that live on the internet—especially projects that combine functionality, design, and real user interaction.
+                    I&apos;m Florida, a developer and CS student at UF building full-stack web applications with a focus on clean, user-centered design.
                   </p>
                   <p>
-                    Recently, I’ve been working on full-stack applications through WiCSE, including Dopaminder, where I develop backend systems and integrate them with user-facing features. 
+                    Through WiCSE, I’ve worked on projects like Dopaminder, developing backend systems and integrating user-facing features.
                     I’ve also built interactive web apps at hackathons like SASE Hacks, focusing on real-time input and dynamic interfaces.
                   </p>
                   <p>
