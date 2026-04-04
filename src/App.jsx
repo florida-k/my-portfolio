@@ -115,7 +115,7 @@ export default function App() {
         <a href="mailto:your@email.com" style={btnStyle}>say hello →</a>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 40, fontSize: 13, color: 'var(--muted)' }}>
           <a href="https://github.com/florida-k" style={linkStyle} target="_blank">github</a>
-          <a href="#" style={linkStyle} target="_blank">linkedin</a>
+          <a href="https://www.linkedin.com/in/florida-k/" style={linkStyle} target="_blank">linkedin</a>
           {/* add more links here */}
         </div>
       </section>
