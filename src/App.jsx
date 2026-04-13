@@ -17,10 +17,10 @@ const projects = [
     imageFit: 'contain',
   },
   {
-    title: 'SASE Hacks 2026',
+    title: 'My Masterpiece',
     subtitle: 'Computer vision × the web',
     desc:
-      'Hackathon project: hand tracking and “air drawing” piped into a Flask app with a styled gallery — save sketches, browse the wall, and iterate in the browser.',
+      'SASE Hacks 2026 project: hand tracking and “air drawing” piped into a Flask app with a styled gallery — save sketches, browse the wall, and iterate in the browser.',
     tech: ['Python', 'Flask', 'OpenCV', 'HTML/CSS'],
     github: 'https://github.com/florida-k/sasehacks2026',
     live: null,
